@@ -3,24 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-<!--    <link rel="stylesheet" href="/style.css">-->
-    <link th:href="@{/style.css}" rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css">
+<!--    <link th:href="@{/style.css}" rel="stylesheet" />-->
 </head>
 <body>
-        <header>
-            <nav>
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/login">login</a></li>
-                    <li><a href="/signup">signup</a></li>
-                </ul>
-            </nav>
-        </header>
+<div th:replace="header  :: header"></div>
         <main>
             <h1>Welcome to codefellowship, <span th:text="${userName}"></span> </h1>
-            <form action="/perform_logout" method="post" >
-                <button type="submit" >logout</button>
-            </form>
 
         </main>
 

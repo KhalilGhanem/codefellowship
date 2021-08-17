@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
+<div th:replace="header  :: header"></div>
 
 <form action="perform_login" method="POST">
     <label for="username"><b>User Name</b></label>

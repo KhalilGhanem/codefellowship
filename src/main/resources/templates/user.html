@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+       <div th:replace="header  :: header"></div>
+
+        <main>
+            <div class="user">
+                <img src="https://grandimageinc.com/wp-content/uploads/2015/09/icon-user-default.png" alt="User" >
+                <h3>UserName:<span th:text="${requireduser.getUsername}"></span></h3>
+                <p>First Name:<span th:text="${requireduser.firstName}"></span></p>
+                <p>Last Name:<span th:text="${requireduser.lastName}"></span></p>
+                <p>Date Of Birth:<span th:text="${requireduser.dateOfBirth}"></span></p>
+                <p>Bio:<span th:text="${requireduser.bio}"></span></p>
+
+            </div>
+        </main>
+
+</body>
+</html>
