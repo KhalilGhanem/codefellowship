@@ -26,3 +26,34 @@ li a:hover {
 fieldset {
  width: fit-content;
 }
+
+.logout{
+text-decoration: none;
+    color: wheat;
+    float: right;
+    padding-top: 15px;
+    padding-right: 10px;
+}
+.username{
+    position: absolute;
+    right: 68px;}
+
+img {
+    width: 300px;
+    height: 300px;
+    display: block;
+}
+.userinfo {
+width: fit-content;
+    text-align: center;
+    background-color: rgb(233, 233, 233);
+    }
+main {
+padding-top: 15px;
+}
+
+.userpost {
+width: 19.6%;
+    text-align: center;
+    margin-top: 10px;
+    border: 2px solid gray;}

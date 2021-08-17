@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/style.css">
+
+</head>
+<body>
+<div th:replace="header  :: header"></div>
+
+<main>
+    <div class="userinfo">
+        <img src="https://grandimageinc.com/wp-content/uploads/2015/09/icon-user-default.png" alt="User" >
+        <h3>UserName:<span th:text="${targetUser.getUsername}"></span></h3>
+        <p>First Name:<span th:text="${targetUser.firstName}"></span></p>
+        <p>Last Name:<span th:text="${targetUser.lastName}"></span></p>
+        <p>Date Of Birth:<span th:text="${targetUser.dateOfBirth}"></span></p>
+        <p>Bio:<span th:text="${targetUser.bio}"></span></p>
+    </div>
+
+    <div>
+
+        <form action="/profile"  method="post" >
+            <fieldset>
+                <legend>Add a new  post:</legend>
+<!--            <p>post user id: <span th:text="${targetUser.id}"></span></p>-->
+<!--            <label for="postbody">Write a post</label>-->
+            <textarea id="postbody" name="postbody" rows="4" cols="34" ></textarea><br>
+            <button type="submit" >Post</button>
+            </fieldset>
+        </form>
+    </div>
+
+    <div class="userpost">
+        <h2> <span th:text="${targetUser.getUsername}"></span>'s Posts :</h2>
+        <div th:each="post :${targetUser.postsList}">
+            <p th:text="${post.body}"></p>
+            <p th:text="${post.createdAt}"></p>
+        </div>
+    </div>
+</main>
+
+
+</body>
+</html>
