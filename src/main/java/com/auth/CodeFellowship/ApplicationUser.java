@@ -1,11 +1,11 @@
 package com.auth.CodeFellowship;
 
+import org.hibernate.engine.internal.Cascade;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 
 @Entity
 public class ApplicationUser  implements UserDetails {
@@ -18,6 +18,17 @@ public class ApplicationUser  implements UserDetails {
 
     @OneToMany(mappedBy = "applicationUser")
     private List<Post>postsList;
+
+    @ManyToMany(cascade={CascadeType.ALL})
+    @JoinTable(name = "following_follower",
+            joinColumns={@JoinColumn(name="following_id")},
+            inverseJoinColumns = {@JoinColumn(name = "follower_id")})
+    private List<ApplicationUser> following = new ArrayList<>();
+
+    @ManyToMany(mappedBy="following")
+    private List<ApplicationUser> followers  = new ArrayList<>();
+
+
 
 
 
@@ -119,5 +130,21 @@ public class ApplicationUser  implements UserDetails {
 
     public void setPostsList(List<Post> postsList) {
         this.postsList = postsList;
+    }
+
+    public List<ApplicationUser> getFollowing() {
+        return following;
+    }
+
+    public void setFollowing(List<ApplicationUser> following) {
+        this.following = following;
+    }
+
+    public List<ApplicationUser> getFollowers() {
+        return followers;
+    }
+
+    public void setFollowers(List<ApplicationUser> followers) {
+        this.followers = followers;
     }
 }
